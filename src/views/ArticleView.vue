@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    home
+    wenzhang
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'HomeView',
+  name: 'ArticleView',
   components: {
 
   }

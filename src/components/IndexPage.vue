@@ -1,20 +1,21 @@
 <template>
+<div class="main">
   <div class="index">
     <div class="left">
       <div class="top">
         <div class="text">
           <div><a>个人博客</a></div>
-          <div>Theme for Hexo</div>
+          <div>Programming is an art</div>
         </div>
         <div class="nav clearfix">
           <ul class="menu">
-            <li class="menu-item">
+            <li class="menu-item" @click="handleToHome">
               <a><i class="iconfont icon-kehuleixing"></i>个人中心</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" @click="handleToArticle">
               <a><i class="iconfont icon-Bars"></i>文章</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" @click="handleToSearch">
               <a><i class="iconfont icon-Search"></i>搜索</a>
             </li>
           </ul>
@@ -27,21 +28,45 @@
     <div class="right">
       <router-view></router-view>
     </div>
-    <RollingProgress></RollingProgress>
   </div>
+  <RollingProgress></RollingProgress>
+  <FloorView></FloorView>
+</div>
 </template>
 
 <script>
 import RollingProgress from '@/components/RollingProgress.vue'
+import FloorView from '@/components/FloorView.vue'
 export default {
   name: 'IndexPage',
+  methods: {
+    // 跳转home路由
+    handleToHome () {
+      this.$router.push({
+        name: 'home'
+      })
+    },
+    // 跳转article路由
+    handleToArticle () {
+      this.$router.push({
+        name: 'article'
+      })
+    },
+    // 跳转search路由
+    handleToSearch () {
+      this.$router.push({
+        name: 'search'
+      })
+    }
+  },
   components: {
-    RollingProgress
+    RollingProgress,
+    FloorView
   }
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .index {
     display: flex;
     width: 1200px;

@@ -19,6 +19,9 @@ export default {
 }
 </script>
 <style lang="less">
+#app {
+  background-color: rgb(245, 244, 244);
+}
 * {
   padding: 0;
   margin: 0;

@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    home
+    搜索
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'HomeView',
+  name: 'SearchView',
   components: {
 
   }
