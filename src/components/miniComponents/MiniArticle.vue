@@ -19,8 +19,7 @@ export default {
   .main {
     width: 230px;
     height: 300px;
-    color: rgb(167, 164, 164);
-    // background-color: rgb(220, 218, 218);
+    color: rgb(39, 36, 36);
     .head {
       width: 200px;
       height: 50px;

@@ -37,6 +37,7 @@
         </div>
         <div class="btn">
           <button @click.prevent="submit">提交</button>
+          <button @click.prevent="keepAddArticle">保存草稿</button>
           <button @click.prevent="cancelAddArticle">取消</button>
         </div>
       </form>
@@ -86,6 +87,15 @@ export default {
     },
     // 取消添加文章
     cancelAddArticle () {
+      this.isShowDialog = false
+      this.saveTitle = ''
+      this.saveTags = ''
+      this.saveDate = ''
+      this.saveContent = ''
+      this.tagsList = []
+    },
+    // 点击保存草稿
+    keepAddArticle () {
       this.isShowDialog = false
     },
     // 点击添加标签
@@ -184,12 +194,6 @@ export default {
   }
 }
 .dialog {
-  // position: absolute;
-  // left: 0;
-  // right: 0;
-  // top: 0;
-  // bottom: 0;
-  // margin: auto;
   width: 800px;
   height: 800px;
   margin: 50px auto;
@@ -290,6 +294,7 @@ export default {
       button {
         width: 100px;
         height: 30px;
+        margin: 30px 10px;
       }
     }
   }

@@ -79,7 +79,7 @@ export default {
     .item-date {
       height: 50px;
       font-size: 15px;
-      color: #999;
+      color: rgb(39, 36, 36);
       text-align: center;
     }
     .item-tags {
@@ -94,7 +94,7 @@ export default {
         height: 30px;
         line-height: 30px;
         border-radius: 20px;
-        color: white;
+        color: rgb(39, 36, 36);
         background-color: rgb(144, 201, 243);
       }
     }

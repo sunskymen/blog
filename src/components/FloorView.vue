@@ -27,7 +27,7 @@ export default {
     height: 100px;
     text-align: center;
     margin: 10px auto;
-    color: #999;
+    color: rgb(39, 36, 36);
     font-size: 13px;
   }
 }
