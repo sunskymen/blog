@@ -28,7 +28,7 @@ export default {
       if (scrollTop === 0) {
         this.isshow = false
       }
-      this.percent = Math.ceil((scrollTop / 581) * 100)
+      this.percent = Math.ceil((Math.ceil(scrollTop) / 651) * 100)
     }
   }
 }

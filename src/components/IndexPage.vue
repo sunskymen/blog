@@ -22,11 +22,13 @@
         </div>
       </div>
       <div class="floor">
-        <router-view></router-view>
+        <MiniHome v-if="showMiniComponents === 0"></MiniHome>
+        <MiniArticle v-if="showMiniComponents === 1"></MiniArticle>
+        <MiniSearch v-if="showMiniComponents === 2"></MiniSearch>
       </div>
     </div>
     <div class="right">
-      <router-view></router-view>
+        <router-view></router-view>
     </div>
   </div>
   <RollingProgress></RollingProgress>
@@ -37,23 +39,41 @@
 <script>
 import RollingProgress from '@/components/RollingProgress.vue'
 import FloorView from '@/components/FloorView.vue'
+import MiniHome from '@/components/miniComponents/MiniHome.vue'
+import MiniArticle from '@/components/miniComponents/MiniArticle'
+import MiniSearch from '@/components/miniComponents/MiniSearch.vue'
 export default {
   name: 'IndexPage',
+  data () {
+    return {
+      showMiniComponents: 0 // 控制小组件显示与隐藏
+    }
+  },
+  mounted () {
+    // 请求数据存储vuex中
+    this.$store.dispatch('getTotalList')
+    this.$store.dispatch('getMyArticleList')
+  },
   methods: {
     // 跳转home路由
     handleToHome () {
+      this.showMiniComponents = 0
       this.$router.push({
         name: 'home'
       })
     },
     // 跳转article路由
     handleToArticle () {
+      // miniArticle小组件显示
+      this.showMiniComponents = 1
       this.$router.push({
         name: 'article'
       })
     },
     // 跳转search路由
     handleToSearch () {
+      // miniSearch小组件显示
+      this.showMiniComponents = 2
       this.$router.push({
         name: 'search'
       })
@@ -61,7 +81,10 @@ export default {
   },
   components: {
     RollingProgress,
-    FloorView
+    FloorView,
+    MiniSearch,
+    MiniHome,
+    MiniArticle
   }
 }
 </script>
@@ -122,14 +145,20 @@ export default {
         width: 230px;
         box-shadow: 1px 1px 5px rgb(212, 212, 212);
         margin-top: 10px;
-        background-color: pink;
+        // background-color: #999;
       }
     }
     .right {
       flex: 1;
       margin-left: 10px;
       height: 1000px;
-      background-color: aqua;
+      background-color: white;
+      box-shadow: 1px 1px 5px #888;
+      overflow: scroll;
+    }
+    .right::-webkit-scrollbar {
+      /*隐藏滚轮*/
+      display: none;
     }
   }
 </style>

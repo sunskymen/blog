@@ -33,6 +33,9 @@ ul, ol {
 a {
   text-decoration: none;
 }
+input {
+  border-style: none !important;
+}
 .clearfix::before,
 .clearfix::after {
   content: "";
